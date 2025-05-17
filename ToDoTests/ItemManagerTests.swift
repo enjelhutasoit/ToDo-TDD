@@ -11,9 +11,19 @@ import XCTest
 
 final class ItemManagerTests: XCTestCase {
     
+    var sut: ItemManager!
+    
+    override func setUp() {
+        super.setUp()
+        sut = ItemManager()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        sut = nil
+    }
+    
     func test_ToDoCount_Initially_IsZero() {
-        let sut = ItemManager()
-        
         XCTAssertEqual(sut.toDoCount, 0)
     }
 }
