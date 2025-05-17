@@ -32,4 +32,17 @@ final class ToDoTests: XCTestCase {
             "Should set description"
         )
     }
+    
+    func test_Init_WhenGivenTimestamp_SetsTimestamp() {
+        let item = ToDoItem(
+            title: "",
+            timestamp: 0.0
+        )
+        
+        XCTAssertEqual(
+            item.timestamp,
+            0.0,
+            "Should set timestamp"
+        )
+    }
 }
