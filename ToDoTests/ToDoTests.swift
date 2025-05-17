@@ -10,12 +10,13 @@ import XCTest
 
 final class ToDoTests: XCTestCase {
     
-    func test_Init_TakesTitle() {
-        let item = ToDoItem(
-            title: "Foo",
-            itemDescription: "Bar"
-        )
+    func test_Init_WhenGivenTitle_SetsTitle() {
+        let item = ToDoItem(title: "Foo")
         
-        XCTAssertNotNil(item, "item  should  not be nil")
+        XCTAssertEqual(
+            item.title,
+            "Foo",
+            "should set  title"
+        )
     }
 }
