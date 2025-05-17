@@ -19,4 +19,17 @@ final class ToDoTests: XCTestCase {
             "should set  title"
         )
     }
+    
+    func test_Init_WhenGivenDescription_SetsDescription() {
+        let item = ToDoItem(
+            title: "",
+            itemDescription: "Bar"
+        )
+        
+        XCTAssertEqual(
+            item.itemDescription,
+            "Bar",
+            "Should set description"
+        )
+    }
 }
