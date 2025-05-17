@@ -32,4 +32,12 @@ final class ItemManagerTests: XCTestCase {
         
         XCTAssertEqual(sut.toDoCount, 1)
     }
+    
+    func test_ItemsAt_ReturnsAddedItem() {
+        let item = ToDoItem(title: "Item 1")
+        sut.add(item)
+        let returnItem = sut.item(at:  0)
+        
+        XCTAssertEqual(returnItem.title, item.title)
+    }
 }
