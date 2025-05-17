@@ -7,8 +7,21 @@
 
 import XCTest
 @testable import ToDo
+import CoreLocation
+
 
 final class LocationTests: XCTestCase {
+    
+    func test_Init_GivenLocationName_SetsLocationName() {
+        let locationName = "California"
+        let location  = Location(name: locationName)
+        
+        XCTAssertEqual(
+            location.name,
+            locationName,
+            "Set location should return \(locationName)"
+        )
+    }
     
     func test_Init_WhenGivenLocation_SetsLocation() {
         let location = Location(name: "California")
@@ -18,6 +31,23 @@ final class LocationTests: XCTestCase {
             item.location?.name,
             location.name,
             "Should set location"
+        )
+    }
+    
+    func test_Init_GiveCoordinate_SetsCoordinate() {
+        let coordinate = CLLocationCoordinate2D(
+            latitude: 1,
+            longitude: 2
+        )
+        
+        let location = Location(name: "", coordinate: coordinate)
+        XCTAssertEqual(
+            location.coordinate?.latitude,
+            coordinate.latitude
+        )
+        XCTAssertEqual(
+            location.coordinate?.longitude,
+            coordinate.longitude
         )
     }
 }
