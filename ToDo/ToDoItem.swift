@@ -26,6 +26,3 @@ struct ToDoItem {
     }
 }
 
-struct Location {
-    let name: String
-}

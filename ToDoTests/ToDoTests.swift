@@ -45,15 +45,4 @@ final class ToDoTests: XCTestCase {
             "Should set timestamp"
         )
     }
-    
-    func test_Init_WhenGivenLocation_SetsLocation() {
-        let location = Location(name: "California")
-        let item = ToDoItem(title: "", location: location)
-        
-        XCTAssertEqual(
-            item.location?.name,
-            location.name,
-            "Should set location"
-        )
-    }
 }
