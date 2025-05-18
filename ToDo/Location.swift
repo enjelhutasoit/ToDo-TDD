@@ -21,5 +21,11 @@ struct Location: Equatable {
         self.coordinate = coordinate
     }
     
-    static func == (lhs: Location, rhs: Location) -> Bool { true }
+    static func == (lhs: Location, rhs: Location) -> Bool {
+        if lhs.coordinate?.latitude != rhs.coordinate?.latitude {
+            return false
+        }
+        
+        return true
+    }
 }

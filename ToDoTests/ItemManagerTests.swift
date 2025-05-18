@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 import XCTest
 @testable import ToDo
 
@@ -101,5 +102,19 @@ final class ItemManagerTests: XCTestCase {
             second,
             "Should return equal if \(first) is same with \(second)"
         )
+    }
+    
+    func test_Locations_WhenLatitudeDiffers_AreNotEqual() {
+        let first = Location(
+            name: "",
+            coordinate: CLLocationCoordinate2D(latitude: 1.0, longitude: 1.0)
+        )
+        
+        let second = Location(
+            name: "",
+            coordinate: CLLocationCoordinate2D(latitude: 0.0, longitude: 1.0)
+        )
+        
+        XCTAssertNotEqual(first, second)
     }
 }
