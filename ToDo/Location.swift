@@ -26,6 +26,10 @@ struct Location: Equatable {
             return false
         }
         
+        if lhs.coordinate?.longitude != rhs.coordinate?.longitude {
+            return false
+        }
+        
         return true
     }
 }
