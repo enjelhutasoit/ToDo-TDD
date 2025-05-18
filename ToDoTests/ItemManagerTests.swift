@@ -119,16 +119,44 @@ final class ItemManagerTests: XCTestCase {
     }
     
     func test_Locations_WhenLongitudeDiffers_AreNotEqual() {
-        let first = Location(
-            name: "",
-            coordinate: CLLocationCoordinate2D(latitude: 1.0, longitude: 1.0)
+        assertLocationNotEqualWith(
+            firstName: "LocationName1",
+            firstLongLat: (1.0, 1,0),
+            secondName: "LocationName2",
+            secondLongLat: (1.0, 0.0)
         )
+    }
+    
+    // Helper
+    func assertLocationNotEqualWith(
+        firstName: String,
+        firstLongLat: ((Double, Double)?),
+        secondName: String,
+        secondLongLat: ((Double, Double)?)
+    ) {
+        var firstCoord: CLLocationCoordinate2D? = nil
         
-        let second = Location(
-            name: "",
-            coordinate: CLLocationCoordinate2D(latitude: 1.0, longitude: 0.0)
-        )
+        if let firstLongLat {
+            firstCoord = CLLocationCoordinate2D(
+                latitude: firstLongLat.0,
+                longitude: firstLongLat.1
+            )
+        }
         
-        XCTAssertNotEqual(first, second)
+        let firstLoc = Location(name: firstName, coordinate: firstCoord)
+        
+        var secondCoord: CLLocationCoordinate2D? = nil
+        
+        if let secondLongLat {
+            secondCoord = CLLocationCoordinate2D(
+                latitude: secondLongLat.0,
+                longitude: secondLongLat.1
+            )
+        }
+        
+        let secondLoc = Location(name: secondName, coordinate: secondCoord)
+
+        
+        XCTAssertNotEqual(firstLoc, secondLoc)
     }
 }
