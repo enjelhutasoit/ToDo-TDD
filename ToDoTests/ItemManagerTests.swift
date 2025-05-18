@@ -48,4 +48,19 @@ final class ItemManagerTests: XCTestCase {
         XCTAssertEqual(sut.toDoCount, 0)
         XCTAssertEqual(sut.doneCount, 1)
     }
+    
+    func test_CheckItemAt_RemovesItFromToDoItems() {
+        let first = ToDoItem(title: "First")
+        let second = ToDoItem(title: "Second")
+        
+        sut.add(first)
+        sut.add(second)
+        sut.check(at: 0)
+        
+        XCTAssertEqual(
+            sut.item(at: 0).title,
+            second.title,
+            "Should return the second items as first item"
+        )
+    }
 }
