@@ -121,7 +121,7 @@ final class ItemManagerTests: XCTestCase {
     func test_Locations_WhenLongitudeDiffers_AreNotEqual() {
         assertLocationNotEqualWith(
             firstName: "LocationName1",
-            firstLongLat: (1.0, 1,0),
+            firstLongLat: (1.0, 1.0),
             secondName: "LocationName2",
             secondLongLat: (1.0, 0.0)
         )
@@ -158,5 +158,18 @@ final class ItemManagerTests: XCTestCase {
 
         
         XCTAssertNotEqual(firstLoc, secondLoc)
+    }
+    
+    func test_RemoveAll_ResultsInCountsBeZero() {
+        sut.add(ToDoItem(title: "1"))
+        sut.add(ToDoItem(title: "2"))
+        
+        sut.check(at: 0)
+        
+        XCTAssertEqual(sut.toDoCount, 1)
+        XCTAssertEqual(sut.doneCount, 1)
+        
+        sut.removeAll()
+        
     }
 }
