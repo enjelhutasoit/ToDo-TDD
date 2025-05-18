@@ -40,4 +40,12 @@ final class ItemManagerTests: XCTestCase {
         
         XCTAssertEqual(returnItem.title, item.title)
     }
+    
+    func test_CheckItemAt_ChangesCounts() {
+        sut.add(ToDoItem(title: ""))
+        sut.check(at: 0)
+        
+        XCTAssertEqual(sut.toDoCount, 0)
+        XCTAssertEqual(sut.doneCount, 1)
+    }
 }

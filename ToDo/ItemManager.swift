@@ -8,9 +8,11 @@
 import Foundation
 
 class ItemManager {
+    
     private var toDoItem: [ToDoItem] = []
     
     var toDoCount: Int = 0
+    var doneCount: Int = 0
     
     func add(_ item: ToDoItem) {
         toDoCount += 1
@@ -19,5 +21,10 @@ class ItemManager {
     
     func item(at index: Int) -> ToDoItem {
         toDoItem[index]
+    }
+    
+    func check(at index: Int) {
+        toDoCount -= 1
+        doneCount += 1
     }
 }
