@@ -77,4 +77,11 @@ final class ItemManagerTests: XCTestCase {
             "Should return the checked/done item"
         )
     }
+    
+    func test_EqualItems_AreEqual() {
+        let first = ToDoItem(title: "First")
+        let second = ToDoItem(title: "Second")
+        
+        XCTAssertEqual(first, second)
+    }
 }
