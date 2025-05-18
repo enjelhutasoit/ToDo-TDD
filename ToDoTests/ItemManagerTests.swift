@@ -84,4 +84,22 @@ final class ItemManagerTests: XCTestCase {
         
         XCTAssertEqual(first, second)
     }
+    
+    func test_Items_WhenLocationDiffers_AreNotEqual() {
+        let first = ToDoItem(title: "First", location: Location(name: "California"))
+        let second = ToDoItem(title: "Second", location: Location(name: "New York"))
+        
+        XCTAssertNotEqual(first, second)
+    }
+    
+    func test_EqualLocations_AreEqual() {
+        let first = Location(name: "Location1")
+        let second = Location(name: "Location1")
+        
+        XCTAssertEqual(
+            first,
+            second,
+            "Should return equal if \(first) is same with \(second)"
+        )
+    }
 }
