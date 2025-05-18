@@ -63,4 +63,18 @@ final class ItemManagerTests: XCTestCase {
             "Should return the second items as first item"
         )
     }
+    
+    func test_DoneItemAt_ReturnsCheckedItem() {
+        let item = ToDoItem(title: "Item")
+        sut.add(item)
+        
+        sut.check(at: 0)
+        let returnedItem = sut.doneItem(at: 0)
+        
+        XCTAssertEqual(
+            returnedItem.title,
+            item.title,
+            "Should return the checked/done item"
+        )
+    }
 }
