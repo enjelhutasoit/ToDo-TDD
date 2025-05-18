@@ -9,7 +9,7 @@ import Foundation
 
 class ItemManager {
     
-    private var toDoItem: [ToDoItem] = []
+    private var toDoItems: [ToDoItem] = []
     private var doneItems: [ToDoItem] = []
     
     var toDoCount: Int = 0
@@ -17,18 +17,18 @@ class ItemManager {
     
     func add(_ item: ToDoItem) {
         toDoCount += 1
-        toDoItem.append(item)
+        toDoItems.append(item)
     }
     
     func item(at index: Int) -> ToDoItem {
-        toDoItem[index]
+        toDoItems[index]
     }
     
     func check(at index: Int) {
         toDoCount -= 1
         doneCount += 1
         
-        let checkedItem = toDoItem.remove(at: index)
+        let checkedItem = toDoItems.remove(at: index)
         doneItems.append(checkedItem)
     }
     
