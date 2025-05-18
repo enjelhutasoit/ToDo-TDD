@@ -12,11 +12,10 @@ class ItemManager {
     private var toDoItems: [ToDoItem] = []
     private var doneItems: [ToDoItem] = []
     
-    var toDoCount: Int = 0
-    var doneCount: Int = 0
+    var toDoCount: Int { toDoItems.count }
+    var doneCount: Int { doneItems.count }
     
     func add(_ item: ToDoItem) {
-        toDoCount += 1
         toDoItems.append(item)
     }
     
@@ -24,10 +23,7 @@ class ItemManager {
         toDoItems[index]
     }
     
-    func check(at index: Int) {
-        toDoCount -= 1
-        doneCount += 1
-        
+    func check(at index: Int) {        
         let checkedItem = toDoItems.remove(at: index)
         doneItems.append(checkedItem)
     }
