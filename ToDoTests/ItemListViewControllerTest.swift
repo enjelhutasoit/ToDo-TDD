@@ -6,13 +6,17 @@
 //
 
 import XCTest
+import UIKit
 @testable import ToDo
 
 
 final class ItemListViewControllerTest: XCTestCase {
     
     func test_TableViewIsNotNilAfterViewDidLoad() {
-        let sut = ItemListViewController()
+        let storyboard = UIStoryboard(name: "ItemListViewController", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ItemListViewController")
+        
+        let sut = viewController as! ItemListViewController
         sut.loadViewIfNeeded()
         
         XCTAssertNotNil(sut.tableView)
