@@ -30,4 +30,8 @@ final class ItemListViewControllerTest: XCTestCase {
     func test_LoadingView_SetsTableViewDataSource() {
         XCTAssertNotNil(sut.tableView.dataSource is ItemListDataProvider)
     }
+    
+    func test_LoadingView_SetsTableViewDelegate() {
+        XCTAssertNotNil(sut.tableView.delegate is ItemListDataProvider)
+    }
 }
