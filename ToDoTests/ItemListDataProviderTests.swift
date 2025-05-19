@@ -10,22 +10,26 @@ import XCTest
 
 final class ItemListDataProviderTests:  XCTestCase {
     
-    func test_NumberOfSection_isTwo() {
-        let sut = ItemListDataProvider()
-        let tableView = UITableView()
-        tableView.dataSource = sut
+    var sut: ItemListDataProvider!
+    var tableView: UITableView!
+    
+    override func setUp() {
+        super.setUp()
         
+        sut = ItemListDataProvider()
+        sut.itemManager = ItemManager()
+        
+        tableView = UITableView()
+        tableView.dataSource = sut
+    }
+    
+    func test_NumberOfSection_isTwo() {
         let numberOfSection = tableView.numberOfSections
         
         XCTAssertEqual(numberOfSection, 2)
     }
     
     func test_NumberOfRows_Section1_IsToDoCount() {
-        let sut = ItemListDataProvider()
-        let tableView = UITableView()
-        tableView.dataSource = sut
-        sut.itemManager = ItemManager()
-        
         sut.itemManager?.add(ToDoItem(title: "ToDo 1"))
         XCTAssertEqual(tableView.numberOfRows(inSection: 0), 1)
         
