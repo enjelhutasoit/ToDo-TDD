@@ -30,6 +30,8 @@ struct Location: Equatable {
             return false
         }
         
+        if lhs.name != rhs.name { return false }
+        
         return true
     }
 }
