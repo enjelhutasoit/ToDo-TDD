@@ -24,7 +24,7 @@ final class ItemListViewControllerTest: XCTestCase {
         sut.loadViewIfNeeded()
     }
     
-    func test_TableViewIsNotNilAfterViewDidLoad() {    XCTAssertNotNil(sut.tableView)
+    func test_TableView_AfterViewDidLoad_IsNotNil() {    XCTAssertNotNil(sut.tableView)
     }
     
     func test_LoadingView_SetsTableViewDataSource() {

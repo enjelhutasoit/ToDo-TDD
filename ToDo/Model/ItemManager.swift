@@ -11,7 +11,7 @@ class ItemManager {
     
     private var toDoItems: [ToDoItem] = []
     private var doneItems: [ToDoItem] = []
-    
+        
     var toDoCount: Int { toDoItems.count }
     var doneCount: Int { doneItems.count }
     

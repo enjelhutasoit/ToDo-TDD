@@ -39,6 +39,6 @@ class ItemListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        ItemCell()
     }
 }
