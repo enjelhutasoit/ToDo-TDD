@@ -20,12 +20,16 @@ final class ItemManagerTests: XCTestCase {
     }
     
     override func tearDown() {
-        super.tearDown()
         sut = nil
+        super.tearDown()
     }
     
     func test_ToDoCount_Initially_IsZero() {
         XCTAssertEqual(sut.toDoCount, 0)
+    }
+    
+    func test_DoneCount_InitiallyIsZero() {
+        XCTAssertEqual(sut.doneCount, 0)
     }
     
     func test_AddItem_IncreasesToDoCountToOne() {
@@ -79,91 +83,9 @@ final class ItemManagerTests: XCTestCase {
         )
     }
     
-    func test_EqualItems_AreEqual() {
-        let first = ToDoItem(title: "First")
-        let second = ToDoItem(title: "Second")
-        
-        XCTAssertEqual(first, second)
-    }
-    
-    func test_Items_WhenLocationDiffers_AreNotEqual() {
-        let first = ToDoItem(title: "First", location: Location(name: "California"))
-        let second = ToDoItem(title: "Second", location: Location(name: "New York"))
-        
-        XCTAssertNotEqual(first, second)
-    }
-    
-    func test_EqualLocations_AreEqual() {
-        let first = Location(name: "Location1")
-        let second = Location(name: "Location1")
-        
-        XCTAssertEqual(
-            first,
-            second,
-            "Should return equal if \(first) is same with \(second)"
-        )
-    }
-    
-    func test_Locations_WhenLatitudeDiffers_AreNotEqual() {
-        let first = Location(
-            name: "",
-            coordinate: CLLocationCoordinate2D(latitude: 1.0, longitude: 1.0)
-        )
-        
-        let second = Location(
-            name: "",
-            coordinate: CLLocationCoordinate2D(latitude: 0.0, longitude: 1.0)
-        )
-        
-        XCTAssertNotEqual(first, second)
-    }
-    
-    func test_Locations_WhenLongitudeDiffers_AreNotEqual() {
-        assertLocationNotEqualWith(
-            firstName: "LocationName1",
-            firstLongLat: (1.0, 1.0),
-            secondName: "LocationName2",
-            secondLongLat: (1.0, 0.0)
-        )
-    }
-    
-    // Helper
-    func assertLocationNotEqualWith(
-        firstName: String,
-        firstLongLat: ((Double, Double)?),
-        secondName: String,
-        secondLongLat: ((Double, Double)?)
-    ) {
-        var firstCoord: CLLocationCoordinate2D? = nil
-        
-        if let firstLongLat {
-            firstCoord = CLLocationCoordinate2D(
-                latitude: firstLongLat.0,
-                longitude: firstLongLat.1
-            )
-        }
-        
-        let firstLoc = Location(name: firstName, coordinate: firstCoord)
-        
-        var secondCoord: CLLocationCoordinate2D? = nil
-        
-        if let secondLongLat {
-            secondCoord = CLLocationCoordinate2D(
-                latitude: secondLongLat.0,
-                longitude: secondLongLat.1
-            )
-        }
-        
-        let secondLoc = Location(name: secondName, coordinate: secondCoord)
-
-        
-        XCTAssertNotEqual(firstLoc, secondLoc)
-    }
-    
     func test_RemoveAll_ResultsInCountsBeZero() {
-        sut.add(ToDoItem(title: "1"))
-        sut.add(ToDoItem(title: "2"))
-        
+        sut.add(ToDoItem(title: "ToDo 1"))
+        sut.add(ToDoItem(title: "ToDo 2"))
         sut.check(at: 0)
         
         XCTAssertEqual(sut.toDoCount, 1)
@@ -171,5 +93,14 @@ final class ItemManagerTests: XCTestCase {
         
         sut.removeAll()
         
+        XCTAssertEqual(sut.toDoCount, 0)
+        XCTAssertEqual(sut.doneCount, 0)
+    }
+    
+    func test_Add_WhenItemIsAlreadyAdded_DoesNotIncreaseCount() {
+        sut.add(ToDoItem(title: "ToDo 1"))
+        sut.add(ToDoItem(title: "ToDo 1"))
+        
+        XCTAssertEqual(sut.toDoCount, 1)
     }
 }

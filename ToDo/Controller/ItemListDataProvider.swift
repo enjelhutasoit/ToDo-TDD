@@ -7,11 +7,12 @@
 
 import UIKit
 
-class ItemListDataProvider: NSObject, UITableViewDataSource {
-    enum Section: Int {
-        case toDo
-        case done
-    }
+enum Section: Int {
+    case toDo
+    case done
+}
+
+class ItemListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var itemManager: ItemManager?
     
