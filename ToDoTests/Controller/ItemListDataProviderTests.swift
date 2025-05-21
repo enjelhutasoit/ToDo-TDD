@@ -91,6 +91,20 @@ final class ItemListDataProviderTests:  XCTestCase {
         _ = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0))
         XCTAssertTrue(mockTableView.cellGotDequeued)
     }
+    
+    func test_CellForRow_CallsConfigCell() {
+        let mockTableView = MockTableView()
+        mockTableView.dataSource = sut
+        mockTableView.register(MockItemCell.self, forCellReuseIdentifier: "ItemCell")
+        
+        let item = ToDoItem(title: "Todo1")
+        sut.itemManager?.add(item)
+        mockTableView.reloadData()
+        let cell = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MockItemCell
+        
+        cell.configCell(with: item)
+        XCTAssertTrue(cell.configCellGotCalled)
+    }
 }
 
 extension ItemListDataProviderTests {
@@ -108,6 +122,15 @@ extension ItemListDataProviderTests {
                 withIdentifier: identifier,
                 for: indexPath
             )
+        }
+    }
+    
+    class MockItemCell: ItemCell {
+        
+        var configCellGotCalled = false
+        
+        override func configCell(with item: ToDoItem) {
+            configCellGotCalled = true
         }
     }
 }
