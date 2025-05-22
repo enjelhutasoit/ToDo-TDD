@@ -112,4 +112,15 @@ final class DetailViewControllerTests: XCTestCase {
             accuracy: 0.001
         )
     }
+    
+    func test_CheckItem_ChecksItemInItemManager() {
+        let itemManager = ItemManager()
+        itemManager.add(ToDoItem(title: "Todo1"))
+        
+        sut.itemInfo = (itemManager, 0)
+        sut.checkItem()
+        
+        XCTAssertEqual(itemManager.toDoCount, 0)
+        XCTAssertEqual(itemManager.doneCount, 1)
+    }
 }
