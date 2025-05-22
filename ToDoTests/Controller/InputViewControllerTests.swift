@@ -30,4 +30,34 @@ final class InputViewControllerTests: XCTestCase {
         let titleTextFieldIsSubView = sut.titleTextField.isDescendant(of: sut.view)
         XCTAssertTrue(titleTextFieldIsSubView)
     }
+    
+    func test_HasAddressTextField() {
+        let addressTextFieldIsSubView = sut.addressTextField.isDescendant(of: sut.view)
+        XCTAssertTrue(addressTextFieldIsSubView)
+    }
+    
+    func test_HasDateTextField() {
+        let dateTextFieldIsSubView = sut.dateTextField.isDescendant(of: sut.view)
+        XCTAssertTrue(dateTextFieldIsSubView)
+    }
+    
+    func test_HasDescriptionTextField() {
+        let descriptionTextFieldIsSubView = sut.descriptionTextField.isDescendant(of: sut.view)
+        XCTAssertTrue(descriptionTextFieldIsSubView)
+    }
+    
+    func test_HasLocationTextField() {
+        let locationTextFieldIsSubView = sut.locationTextField.isDescendant(of: sut.view)
+        XCTAssertTrue(locationTextFieldIsSubView)
+    }
+
+    func test_HasCancelButton() {
+        let cancelButtonIsSubView = sut.cancelButton.isDescendant(of: sut.view)
+        XCTAssertTrue(cancelButtonIsSubView)
+    }
+
+    func test_HasSaveButton() {
+        let saveButtonIsSubView = sut.saveButton.isDescendant(of: sut.view)
+        XCTAssertTrue(saveButtonIsSubView)
+    }
 }
