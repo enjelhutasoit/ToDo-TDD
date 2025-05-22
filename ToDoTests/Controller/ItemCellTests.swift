@@ -10,19 +10,32 @@ import UIKit
 import XCTest
 
 final class ItemCellTests: XCTestCase {
-    func test_HasNameLabel() {
+    
+    var tableView: UITableView!
+    let dataSource = FakeDataSource()
+    var cell: ItemCell!
+    
+    override func setUp() {
+        super.setUp()
+        
         let storyboard = UIStoryboard(name: "ItemListViewController", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ItemListViewController") as! ItemListViewController
         controller.loadViewIfNeeded()
         
         
-        let tableView = controller.tableView
-        let dataSource = FakeDataSource()
+        _ = controller.view
+        tableView = controller.tableView
         tableView?.dataSource = dataSource
         
-        let cell = tableView?.dequeueReusableCell(withIdentifier: "ItemCell", for: IndexPath(row: 0, section: 0))  as! ItemCell
-        
+        cell = tableView?.dequeueReusableCell(withIdentifier: "ItemCell", for: IndexPath(row: 0, section: 0)) as? ItemCell
+    }
+    
+    func test_HasNameLabel() {
         XCTAssertTrue(cell.titleLabel.isDescendant(of: cell.contentView))
+    }
+    
+    func test_HasLocationLabel() {
+        XCTAssertTrue(cell.locationLabel.isDescendant(of: cell.contentView))
     }
 }
 

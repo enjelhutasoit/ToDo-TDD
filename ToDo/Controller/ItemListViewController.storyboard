@@ -27,20 +27,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbW-q8-I7p">
+                                                    <rect key="frame" x="16" y="12.000000000000002" width="357" height="20.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZV-WS-qf5">
-                                                    <rect key="frame" x="34" y="11.333333333333336" width="325" height="21"/>
+                                                    <rect key="frame" x="16" y="0.0" width="377" height="20.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="EZV-WS-qf5" firstAttribute="centerY" secondItem="cTk-6D-lk2" secondAttribute="centerY" id="FLX-Az-ni1"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="EZV-WS-qf5" secondAttribute="trailing" constant="14" id="FkK-9A-FJd"/>
-                                                <constraint firstItem="EZV-WS-qf5" firstAttribute="leading" secondItem="cTk-6D-lk2" secondAttribute="leadingMargin" constant="14" id="kwm-nc-Fsr"/>
+                                                <constraint firstAttribute="trailing" secondItem="EZV-WS-qf5" secondAttribute="trailing" id="1Hy-ks-Ubl"/>
+                                                <constraint firstItem="EZV-WS-qf5" firstAttribute="top" secondItem="cTk-6D-lk2" secondAttribute="top" id="8pq-Ev-bup"/>
+                                                <constraint firstItem="bbW-q8-I7p" firstAttribute="leading" secondItem="EZV-WS-qf5" secondAttribute="leading" id="LK4-VX-C7A"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bbW-q8-I7p" secondAttribute="trailing" id="VYW-wb-CJM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="bbW-q8-I7p" secondAttribute="bottom" id="fTS-sC-iCP"/>
+                                                <constraint firstItem="EZV-WS-qf5" firstAttribute="leading" secondItem="cTk-6D-lk2" secondAttribute="leading" constant="16" id="hOE-QD-avO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="locationLabel" destination="bbW-q8-I7p" id="VsW-RS-ZBR"/>
                                             <outlet property="titleLabel" destination="EZV-WS-qf5" id="QnF-HE-4s5"/>
                                         </connections>
                                     </tableViewCell>
@@ -64,7 +74,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <customObject id="Mms-aO-3e2" customClass="ItemListDataProvider" customModule="ToDo" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="-17"/>
+            <point key="canvasLocation" x="-5.343511450381679" y="-17.605633802816904"/>
         </scene>
     </scenes>
     <resources>
