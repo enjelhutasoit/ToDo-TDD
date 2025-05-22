@@ -8,5 +8,5 @@
 import UIKit
 
 class InputViewController: UIViewController {
-    
+    @IBOutlet var titleTextField: UITextField!
 }

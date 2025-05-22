@@ -25,4 +25,9 @@ final class InputViewControllerTests: XCTestCase {
         ) as? InputViewController
         sut.loadViewIfNeeded()
     }
+    
+    func test_HasTitleTextField() {
+        let titleTextFieldIsSubView = sut.titleTextField.isDescendant(of: sut.view)
+        XCTAssertTrue(titleTextFieldIsSubView)
+    }
 }

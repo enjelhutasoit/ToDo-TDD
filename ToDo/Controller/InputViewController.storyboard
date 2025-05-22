@@ -15,9 +15,28 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nqd-26-hRs">
+                                <rect key="frame" x="21" y="101" width="351" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="PyT-v6-9Lj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nqd-26-hRs" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="0a3-pa-bV9"/>
+                            <constraint firstItem="nqd-26-hRs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="21" id="9C4-tY-Qlf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nqd-26-hRs" secondAttribute="trailing" constant="21" id="IpU-zP-WiE"/>
+                            <constraint firstItem="nqd-26-hRs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="42" id="Qln-dA-NMU"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleTextField" destination="nqd-26-hRs" id="xp7-ON-ktP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
