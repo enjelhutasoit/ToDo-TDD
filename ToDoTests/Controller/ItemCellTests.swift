@@ -65,6 +65,27 @@ final class ItemCellTests: XCTestCase {
         
         XCTAssertEqual(cell.locationLabel.text, location)
     }
+    
+    func test_Title_WhenItemIsChecked_IsStrokeThrough() {
+        let location = Location(name: "Bar")
+        let item = ToDoItem(
+            title: "Foo",
+            itemDescription: nil,
+            timestamp: 1456150025,
+            location: location
+        )
+        
+        cell.configCell(with: item, checked: true)
+        
+        let attributedString = NSAttributedString(
+            string: "Foo",
+            attributes: [NSAttributedString.Key.strikethroughStyle:
+                            NSUnderlineStyle.single.rawValue])
+        
+        XCTAssertEqual(cell.titleLabel.attributedText, attributedString)
+        XCTAssertNil(cell.locationLabel.text)
+        XCTAssertNil(cell.dateLabel.text)
+    }
 }
 
 extension ItemCellTests {
