@@ -37,6 +37,12 @@ final class ItemCellTests: XCTestCase {
     func test_HasLocationLabel() {
         XCTAssertTrue(cell.locationLabel.isDescendant(of: cell.contentView))
     }
+    
+    func test_ConfigCell_SetsTitle() {
+        let title = "Todo1"
+        cell.configCell(with: ToDoItem(title: title))
+        XCTAssertEqual(cell.titleLabel.text, title)
+    }
 }
 
 extension ItemCellTests {

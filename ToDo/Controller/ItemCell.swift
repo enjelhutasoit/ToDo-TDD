@@ -12,5 +12,6 @@ class ItemCell: UITableViewCell {
     @IBOutlet var locationLabel: UILabel!
         
     func configCell(with item: ToDoItem) {
+        titleLabel.text = item.title
     }
 }
