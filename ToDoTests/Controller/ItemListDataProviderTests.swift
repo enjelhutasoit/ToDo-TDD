@@ -82,10 +82,7 @@ final class ItemListDataProviderTests:  XCTestCase {
     }
     
     func test_CellForRow_DequeuesCellFromTableView() {
-        let mockTableView = MockTableView()
-        mockTableView.dataSource = sut
-        mockTableView.register(ItemCell.self,
-                               forCellReuseIdentifier: "ItemCell")
+        let mockTableView = MockTableView.mockableTableView(withDataSource: sut)
         sut.itemManager?.add(ToDoItem(title: "Foo"))
         mockTableView.reloadData()
         _ = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0))
@@ -93,10 +90,7 @@ final class ItemListDataProviderTests:  XCTestCase {
     }
     
     func test_CellForRow_CallsConfigCell() {
-        let mockTableView = MockTableView()
-        mockTableView.dataSource = sut
-        mockTableView.register(MockItemCell.self, forCellReuseIdentifier: "ItemCell")
-        
+        let mockTableView = MockTableView.mockableTableView(withDataSource: sut)
         let item = ToDoItem(title: "Todo1")
         sut.itemManager?.add(item)
         mockTableView.reloadData()
@@ -108,18 +102,7 @@ final class ItemListDataProviderTests:  XCTestCase {
     }
     
     func test_CellForRow_Section2_CallsConfigCellWithDoneItem() {
-        let mockTableView = MockTableView(
-            frame: CGRect(
-                x: 0,
-                y: 0,
-                width: 320,
-                height: 480
-            ),
-            style: .plain
-        )
-        
-        mockTableView.dataSource = sut
-        mockTableView.register(MockItemCell.self, forCellReuseIdentifier: "ItemCell")
+        let mockTableView = MockTableView.mockableTableView(withDataSource: sut)
         let item1 = ToDoItem(title: "Todo1")
         let item2 = ToDoItem(title: "Todo2")
         sut.itemManager?.add(item1)
@@ -153,6 +136,24 @@ extension ItemListDataProviderTests {
                 withIdentifier: identifier,
                 for: indexPath
             )
+        }
+        
+        class func mockableTableView(
+            withDataSource dataSource   : UITableViewDataSource
+        ) -> MockTableView {
+            let mockTableView = MockTableView(
+                frame: CGRect(
+                    x: 0,
+                    y: 0,
+                    width: 320,
+                    height: 480
+                ),
+                style: .plain
+            )
+            mockTableView.dataSource = dataSource
+            mockTableView.register(MockItemCell.self, forCellReuseIdentifier: "ItemCell")
+            
+            return mockTableView
         }
     }
     
