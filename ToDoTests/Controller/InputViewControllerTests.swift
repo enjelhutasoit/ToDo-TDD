@@ -5,6 +5,7 @@
 //  Created by Enjel Hutasoit on 22/05/25.
 //
 
+import CoreLocation
 import Foundation
 import XCTest
 @testable import ToDo
@@ -59,5 +60,20 @@ final class InputViewControllerTests: XCTestCase {
     func test_HasSaveButton() {
         let saveButtonIsSubView = sut.saveButton.isDescendant(of: sut.view)
         XCTAssertTrue(saveButtonIsSubView)
+    }
+}
+
+extension InputViewControllerTests {
+    
+    class MockGeocoder: CLGeocoder {
+        
+        var completionHandler: CLGeocodeCompletionHandler?
+        
+        override func geocodeAddressString(
+            _ addressString: String,
+            completionHandler: @escaping CLGeocodeCompletionHandler
+        ) {
+            self.completionHandler = completionHandler
+        }
     }
 }
