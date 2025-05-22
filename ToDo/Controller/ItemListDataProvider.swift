@@ -38,8 +38,16 @@ class ItemListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate
         return numberOfRows
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+            
+        if let item = itemManager?.item(at: indexPath.row) {
+            cell.configCell(with: item)
+        }
+        
         return cell
     }
 }

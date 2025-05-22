@@ -8,7 +8,7 @@
 import UIKit
 
 class ItemCell: UITableViewCell {
-    func configCell(with item: ToDoItem) {
         
+    func configCell(with item: ToDoItem) {
     }
 }
