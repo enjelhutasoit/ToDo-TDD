@@ -21,9 +21,11 @@ class ItemCell: UITableViewCell {
     func configCell(with item: ToDoItem) {
         titleLabel.text = item.title
         
-        if let timestamp = item.timestamp { 
+        if let timestamp = item.timestamp {
             let date = Date(timeIntervalSince1970: timestamp)
             dateLabel.text = dateFormatter.string(from: date)
         }
+        
+        locationLabel.text = item.location?.name
     }
 }

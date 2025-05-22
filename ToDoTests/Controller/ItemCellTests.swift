@@ -58,6 +58,13 @@ final class ItemCellTests: XCTestCase {
         
         XCTAssertEqual(cell.dateLabel.text, dateString)
     }
+    
+    func test_ConfigCell_SetsLocationName() {
+        let location = "California"
+        cell.configCell(with: ToDoItem(title: "Todo1", location: Location(name: location)))
+        
+        XCTAssertEqual(cell.locationLabel.text, location)
+    }
 }
 
 extension ItemCellTests {
