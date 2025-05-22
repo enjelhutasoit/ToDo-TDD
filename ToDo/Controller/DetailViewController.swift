@@ -10,6 +10,9 @@ import UIKit
 
 class DetailViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
     
 }
