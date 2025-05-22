@@ -22,7 +22,7 @@ final class DetailViewControllerTests: XCTestCase {
         )
         sut = storyboard.instantiateViewController(
             withIdentifier: "DetailViewController"
-        ) as! DetailViewController
+        ) as? DetailViewController
         
         sut.loadViewIfNeeded()
     }
