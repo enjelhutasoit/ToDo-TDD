@@ -66,7 +66,17 @@ class ItemListDataProvider: NSObject, UITableViewDataSource {
         commit editingStyle: UITableViewCell.EditingStyle,
         forRowAt indexPath: IndexPath
     ) {
-        itemManager?.check(at: indexPath.row)
+        guard let itemManager else { fatalError() }
+        guard let section = Section(rawValue: indexPath
+            .section) else { fatalError() }
+        
+        switch section {
+        case .toDo:
+            itemManager.check(at: indexPath.row)
+        case .done:
+            itemManager.uncheck(at: indexPath.row)
+        }
+        
         tableView.reloadData()
     }
 }
