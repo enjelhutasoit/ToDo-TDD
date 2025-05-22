@@ -47,6 +47,17 @@ final class ItemCellTests: XCTestCase {
         cell.configCell(with: ToDoItem(title: title))
         XCTAssertEqual(cell.titleLabel.text, title)
     }
+    
+    func test_ConfigCell_SetsDate() {
+        let dateString = "05/22/2025"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let date = dateFormatter.date(from: dateString)
+        let timeStamp = date?.timeIntervalSince1970
+        cell.configCell(with: ToDoItem(title: "Todo1", timestamp: timeStamp))
+        
+        XCTAssertEqual(cell.dateLabel.text, dateString)
+    }
 }
 
 extension ItemCellTests {
