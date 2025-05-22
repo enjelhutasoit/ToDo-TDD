@@ -60,6 +60,15 @@ class ItemListDataProvider: NSObject, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath
+    ) {
+        itemManager?.check(at: indexPath.row)
+        tableView.reloadData()
+    }
 }
 
 extension ItemListDataProvider: UITableViewDelegate {
