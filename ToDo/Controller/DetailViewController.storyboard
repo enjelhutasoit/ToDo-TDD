@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,18 +17,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mu5-Fg-GfQ">
-                                <rect key="frame" x="175" y="106" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mu5-Fg-GfQ">
+                                <rect key="frame" x="175" y="106" width="43" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="MiI-3S-s0U"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kh0-qe-6pc">
+                                <rect key="frame" x="21" y="169" width="351" height="125"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kh0-qe-6pc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="21" id="1sZ-a7-yBc"/>
+                            <constraint firstItem="Mu5-Fg-GfQ" firstAttribute="centerX" secondItem="kh0-qe-6pc" secondAttribute="centerX" id="2f6-5C-Dgg"/>
+                            <constraint firstItem="Mu5-Fg-GfQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="175" id="FM1-Kl-GIj"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kh0-qe-6pc" secondAttribute="trailing" constant="21" id="HZ7-sr-PY2"/>
+                            <constraint firstItem="Mu5-Fg-GfQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="47" id="LuT-up-6F3"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="kh0-qe-6pc" secondAttribute="bottom" constant="524" id="mBy-q7-wHp"/>
+                            <constraint firstItem="kh0-qe-6pc" firstAttribute="top" secondItem="Mu5-Fg-GfQ" secondAttribute="bottom" constant="21" id="yCv-89-KUK"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="kh0-qe-6pc" id="Hkj-JJ-pjb"/>
                         <outlet property="titleLabel" destination="Mu5-Fg-GfQ" id="4f1-BN-icI"/>
                     </connections>
                 </viewController>

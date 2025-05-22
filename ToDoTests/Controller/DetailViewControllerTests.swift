@@ -31,4 +31,9 @@ final class DetailViewControllerTests: XCTestCase {
         
         XCTAssertTrue(titleLableIsSubView)
     }
+    
+    func test_HasMapView() {
+        let mapViewIsSubView = sut.mapView?.isDescendant(of: sut.view) ?? false
+        XCTAssertTrue(mapViewIsSubView)
+    }
 }
