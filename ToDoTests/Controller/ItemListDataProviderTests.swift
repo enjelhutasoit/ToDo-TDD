@@ -119,6 +119,11 @@ final class ItemListDataProviderTests:  XCTestCase {
         
         XCTAssertEqual(cell.catchedItem, item2)
     }
+    
+    func test_DeleteButton_InFirstSection_ShowTitleCheck() {
+        let deleteButtonTitle = tableView.delegate?.tableView?(tableView, titleForDeleteConfirmationButtonForRowAt: IndexPath(row: 0, section: 0))
+        XCTAssertEqual(deleteButtonTitle, "Check")
+    }
 }
 
 extension ItemListDataProviderTests {

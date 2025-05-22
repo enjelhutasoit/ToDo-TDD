@@ -12,7 +12,7 @@ enum Section: Int {
     case done
 }
 
-class ItemListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
+class ItemListDataProvider: NSObject, UITableViewDataSource {
     
     var itemManager: ItemManager?
     
@@ -59,5 +59,11 @@ class ItemListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate
         cell.configCell(with: item)
         
         return cell
+    }
+}
+
+extension ItemListDataProvider: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Check"
     }
 }
