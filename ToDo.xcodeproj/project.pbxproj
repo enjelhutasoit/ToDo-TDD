@@ -21,9 +21,22 @@
 		EF876BB42DD93E26008E54F0 /* ToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EFA16BF42DDF037400A6FF3F /* Exceptions for "ToDo" folder in "ToDo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = EF876B9E2DD93DE1008E54F0 /* ToDo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		EF876BA12DD93DE1008E54F0 /* ToDo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EFA16BF42DDF037400A6FF3F /* Exceptions for "ToDo" folder in "ToDo" target */,
+			);
 			path = ToDo;
 			sourceTree = "<group>";
 		};
@@ -329,6 +342,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ToDo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToDo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -357,6 +371,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ToDo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToDo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
