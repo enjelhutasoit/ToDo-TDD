@@ -66,6 +66,9 @@ final class InputViewControllerTests: XCTestCase {
 // MARK: - Networking
 extension InputViewControllerTests {
     func test_Geocoder_FetchesCoordinates() {
+        
+        let geocoderAnswered = expectation(description: "Geocoder")
+        
         let address = "Infinite Loop 1, Cupertino"
         CLGeocoder()
             .geocodeAddressString(address) { (placemarks, error) -> Void in
@@ -90,7 +93,9 @@ extension InputViewControllerTests {
                     -122.0300,
                     accuracy: 0.001
                 )
+                geocoderAnswered.fulfill()
             }
+        waitForExpectations(timeout: 3.0, handler: nil)
     }
 }
 
