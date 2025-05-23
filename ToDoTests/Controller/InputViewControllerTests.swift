@@ -63,6 +63,37 @@ final class InputViewControllerTests: XCTestCase {
     }
 }
 
+// MARK: - Networking
+extension InputViewControllerTests {
+    func test_Geocoder_FetchesCoordinates() {
+        let address = "Infinite Loop 1, Cupertino"
+        CLGeocoder()
+            .geocodeAddressString(address) { (placemarks, error) -> Void in
+                let coordinate =
+                placemarks?.first?.location?.coordinate
+                
+                guard let latitude =
+                        coordinate?.latitude else {
+                    XCTFail()
+                    return
+                }
+                guard let longitude = coordinate?.longitude else { XCTFail()
+                    return
+                }
+                XCTAssertEqual(
+                    latitude,
+                    37.3316,
+                    accuracy: 0.001
+                )
+                XCTAssertEqual(
+                    longitude,
+                    -122.0300,
+                    accuracy: 0.001
+                )
+            }
+    }
+}
+
 extension InputViewControllerTests {
     
     class MockGeocoder: CLGeocoder {
