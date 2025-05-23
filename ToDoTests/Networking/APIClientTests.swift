@@ -15,3 +15,19 @@ final class APIClientTests: XCTestCase {
         let sut = APIClient()
     }
 }
+
+extension APIClientTests {
+    
+    class MockURLSession {
+        
+        var url: URL?
+        
+        func dataTask(
+            with url: URL,
+            completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
+        ) -> URLSessionTask {
+            self.url = url
+            return URLSession.shared.dataTask(with: url)
+        }
+    }
+}
